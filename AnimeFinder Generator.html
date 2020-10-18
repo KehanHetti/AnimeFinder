@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="AnimeFinder.css" />
+
+    <script>
+      /*Change up layout and make it multiple shows and you can see them by scrolling*/
+
+      var genres = {
+        Horror: [
+          {
+            name: "Tokyo Ghoul",
+            description:
+              "Tokyo Ghoul is set in an alternate reality where ghouls, creatures that look like normal people but can only survive by eating human flesh, live amongst the human population in secrecy, hiding their true nature in order to evade pursuit from the authorities.",
+            image: "TG.jpg",
+          },
+          {
+            name: "The Promised Neverland",
+            description:
+              "The Promised Neverland follows three protagonists, Emma, Norman, and Ray, along with a cast of orphans who live together. Their lives have been full of joy, that is until the protagonists learn the orphanage is really a farm where children are raised and given to demons to be eaten.",
+            image: "TPN.jpg",
+          },
+          {
+            name: " Death Note",
+            description:
+              "Death Note (デスノート, Desu Nōto) is a manga series about a high school student who discovers a supernatural notebook that allows him to kill anyone by writing the victim's name while picturing their face.",
+            image: "DN.jpg",
+          },
+        ],
+
+        Action: [
+          {
+            name: "My Hero Academia",
+            description:
+              "The story follows Izuku Midoriya, a boy born without superpowers (called Quirks) in a world where they have become commonplace, but who still dreams of becoming a hero himself.",
+            image: "MHA.jpg",
+          },
+          {
+            name: "One punch man",
+            description:
+              "One-Punch Man is a Japanese superhero franchise created by the artist ONE. It tells the story of Saitama, a superhero who can defeat any opponent with a single punch but seeks to find a worthy foe after growing bored by a lack of challenge due to his overwhelming strength.",
+            image: "OPM.jpg",
+          },
+          {
+            name: "Naruto",
+            description:
+              "Naruto (Japanese: ナルト) is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+            image: "NS.png",
+          },
+        ],
+
+        Sports: [
+          {
+            name: "Haikyuu",
+            description:
+              "Determined to be like the volleyball championship's star player Shouyou, a short boy nicknamed the small giant, joins his school's volleyball club. Hinata Shouyou, a short middle school student, gained a sudden love of volleyball after watching a national championship match on TV.",
+            image: "H.jpg",
+          },
+          {
+            name: "Kuroko no basket",
+            description:
+              "A legendary 6th player. An up-and-coming power player, Taiga Kagami, is just back from America. When he comes to Seirin High School, he meets the super-ordinary boy, Tetsuya Kuroko. ... Kuroko makes a pact with Kagami to defeat the other members of the Miracle Generation, who have all played basketball at other schools.",
+            image: "KNB.jpg",
+          },
+          {
+            name: "Free Eternal Summer",
+            description:
+              "Eternal Summer- is set one year after the first season of Free!. The events revolve around Haruka Nanase, Makoto Tachibana, Rin Matsuoka, and Rin's childhood friend, Sosuke Yamazaki, in their final year of high school. The boys struggle with their future dreams in preparation for graduation.",
+            image: "FES.jpg",
+          },
+        ],
+      };
+
+      function displayResults() {
+        var genreSelect = document.getElementById("genreSelect");
+
+        var currentGenre = genreSelect.value;
+
+        var randomChoice = genres[currentGenre][Math.floor(Math.random() * 3)];
+        document.getElementById("results").innerHTML = `
+            <strong>${randomChoice.name}</strong> 
+            <p>${randomChoice.description}</p> <br>
+            <img src ='${randomChoice.image}' class = "resultImage">
+          `;
+        var resultsButton = document.getElementById("resultsButton");
+        resultsButton.textContent = "Click again for new results";
+      }
+    </script>
+  </head>
+
+  <body>
+    <a href="Web App Project.html" class="title">
+      <h1 class="center">AnimeFinder</h1>
+    </a>
+    <div class="topnav">
+      <a href="Web App Project.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Streaming services.html">Streaming services</a>
+    </div>
+    <strong>Choose your Favourite Genre</strong>
+    <br />
+    <div class="genres">
+      <select id="genreSelect">
+        <option value="Horror">Horror</option>
+        <option value="Action">Action</option>
+        <option value="Sports">Sports</option>
+      </select>
+      <button type="button" id="resultsButton" onclick="displayResults()">
+        Click Me for results
+      </button>
+    </div>
+    <p id="results"></p>
+  </body>
+</html>
