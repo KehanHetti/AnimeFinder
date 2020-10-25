@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Anime Finder</title>
+
+    <link rel="stylesheet" href="AnimeFinder.css" />
+    <script src="data.js"></script>
+    <script src="common.js" defer></script>
+  </head>
+
+  <body>
+    <br />
+    <div class="hero">
+      <div id="results"></div>
+    </div>
+    <script>
+      shows.sort(function (a, b) {
+        return new Date(b.latestEpisodeDate) - new Date(a.latestEpisodeDate);
+      });
+      var result = "";
+      for (var x = 0; x < shows.length; x++) {
+        var show = shows[x];
+        var showString = ` <strong>${show.name}</strong>
+            <span> Last Aired Date: ${show.latestEpisodeDate}</span><br> 
+            <p>${show.description}</p> <br>
+            <img src ='${show.image}' class = "resultImage">`;
+        result += showString;
+      }
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>
